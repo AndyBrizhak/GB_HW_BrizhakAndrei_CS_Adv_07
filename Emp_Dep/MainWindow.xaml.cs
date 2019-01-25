@@ -30,7 +30,7 @@ namespace Emp_Dep
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                Console.WriteLine(connection.State);
+                //Console.WriteLine(connection.State);
                
                 //connection.Close();
             }
