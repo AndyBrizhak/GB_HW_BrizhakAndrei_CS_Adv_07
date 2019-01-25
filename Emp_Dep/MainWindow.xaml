@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emp_Dep"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="496.551" Width="801.676">
+    <Window.Resources>
+
+    </Window.Resources>
+
     <Grid>
-        
+        <Label Content="Департаменты" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="327"/>
+        <ComboBox x:Name="DepCombobox" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="327" 
+                  SelectedIndex="0"
+                  ItemsSource="{Binding DbDepartments}"
+                  SelectionChanged="DepCombobox_SelectionChanged" Height="24"
+                  ToolTip="Выберете департамент">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding DepName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ListView x:Name="ListEmp" Margin="10,144,457,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat=" {0} | {1} ">
+                                <Binding Path="FName"/>
+                                <Binding Path="LName"/>
+                                <!--<Binding Path="ToString(Age)"/>-->
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+
+        <Button Content="Удалить департамент" HorizontalAlignment="Left"
+                Margin="419,51,0,0" VerticalAlignment="Top" Width="311" Click="ButtonDelDep_Click"
+        />
+        <Button Content="Добавить департамент" HorizontalAlignment="Left"
+                Margin="419,101,0,0" VerticalAlignment="Top" Width="311" Click="ButtonAddDep_Click"
+        />
+
+
+        <TextBox 
+                 HorizontalAlignment="Left"
+                 Height="23" Margin="380,144,0,0" 
+                 TextWrapping="Wrap" Text="{Binding ElementName=ListEmp,
+                                                    Path=SelectedValue.FName, 
+                                                    UpdateSourceTrigger=PropertyChanged,
+                                                    Mode=TwoWay}" 
+                 VerticalAlignment="Top" Width="311"
+        />
+
+        <Button x:Name="DepEditBtn" Content="Переименовать департамент" HorizontalAlignment="Left" Margin="419,76,0,0"
+                VerticalAlignment="Top" Width="311" 
+        />
+
+        <Button Content="Добавить сотрудника" HorizontalAlignment="Left"
+                Margin="419,190,0,0" VerticalAlignment="Top" Width="311" Click="ButtonAddEmp_Click"
+        />
+
+        <Button Content="Удалить сотрудника" HorizontalAlignment="Left"
+                Margin="419,215,0,0" VerticalAlignment="Top" Width="311" Click="ButtonDelEmp_Click"
+        />
     </Grid>
 </Window>
