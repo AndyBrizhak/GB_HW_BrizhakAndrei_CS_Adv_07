@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,9 +14,32 @@ namespace Emp_Dep
     public partial class MainWindow : Window
     {
         public Rep dbEmpDep;
+        /// <summary>
+        /// 
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            //создание переменной описывающей подключение к базе даных
+            var connectionString = @"Data source=(LocalDb)\MSSQLLocalDB;
+                                    Initial Catalog=Emp_Dep;
+                                    Integrated security = True;";   /*False */
+
+            //создание экземпляра класса подключения к базе с параметрами connectionString
+            //пример открытия и закрытия подключения к базе данных
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                Console.WriteLine(connection.State);
+               
+                //connection.Close();
+            }
+
+            
+
+            
+            
+
             dbEmpDep = new Rep();
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;
