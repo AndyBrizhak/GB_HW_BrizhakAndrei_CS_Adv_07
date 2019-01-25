@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
@@ -21,9 +22,18 @@ namespace Emp_Dep
         {
             InitializeComponent();
             //создание переменной описывающей подключение к базе даных
-            var connectionString = @"Data source=(LocalDb)\MSSQLLocalDB;
-                                    Initial Catalog=Emp_Dep;
-                                    Integrated security = True;";   /*False */
+            //@"Data source=(LocalDb)\MSSQLLocalDB;
+            //Initial Catalog=Emp_Dep;
+            //Integrated security = True;"   /*False */
+
+            //var connectionString = ConfigurationManager.ConnectionStrings["DefaultStr"].ConnectionString;   
+
+            var connectionString = new SqlConnectionStringBuilder
+            {
+                DataSource = @"(LocalDb)\MSSQLLocalDB",
+                InitialCatalog = "Emp_Dep"
+            }.ConnectionString;
+
 
             //создание экземпляра класса подключения к базе с параметрами connectionString
             //пример открытия и закрытия подключения к базе данных
