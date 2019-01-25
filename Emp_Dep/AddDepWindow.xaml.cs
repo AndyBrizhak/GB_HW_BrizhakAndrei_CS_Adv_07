@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Emp_Dep
 {
@@ -19,7 +7,7 @@ namespace Emp_Dep
     /// </summary>
     public partial class AddDepWindow : Window
     {
-        public AddDepWindow()
+        public AddDepWindow(Rep dbEmpDep)
         {
             InitializeComponent();
             btn.Click += delegate
@@ -27,6 +15,7 @@ namespace Emp_Dep
                 dbEmpDep.AddDep(txt.Text);
                 this.DialogResult = true;
             };
+
         }
     }
 }
