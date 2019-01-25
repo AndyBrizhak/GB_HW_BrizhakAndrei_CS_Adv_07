@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emp_Dep"
         mc:Ignorable="d"
-        Title="AddDepWindow" Height="450" Width="800">
+        Title="AddDepWindow" Height="175.15" Width="468.563">
     <Grid>
-        
+        <StackPanel Margin="0,0,10,0">
+            <TextBox x:Name="txt" Margin="10"/>
+            <Button x:Name="btn" Content="Добавить" Margin="10"/>
+        </StackPanel>
     </Grid>
 </Window>

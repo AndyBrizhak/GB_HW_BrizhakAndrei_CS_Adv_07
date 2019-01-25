@@ -22,6 +22,11 @@ namespace Emp_Dep
         public AddDepWindow()
         {
             InitializeComponent();
+            btn.Click += delegate
+            {
+                dbEmpDep.AddDep(txt.Text);
+                this.DialogResult = true;
+            };
         }
     }
 }
