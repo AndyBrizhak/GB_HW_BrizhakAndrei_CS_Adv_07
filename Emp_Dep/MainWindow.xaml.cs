@@ -69,6 +69,9 @@ namespace Emp_Dep
 
             DepEditBtn.Click += delegate
             {
+                //DataRowView newRowDep = (DataRowView)DepCombobox.SelectedItem;
+                //EditDepWindow editDepWindow = new EditDepWindow(newRowDep.Row);
+                //editDepWindow.ShowDialog();
                 new EditDepWindow((DepCombobox.SelectedItem as Department).DepId, dbEmpDep).ShowDialog();
             };
 
