@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
@@ -22,41 +23,32 @@ namespace Emp_Dep
 
             dbEmpDep = new Rep();
 
-
-            //создание переменной описывающей подключение к базе даных
-            //@"Data source=(LocalDb)\MSSQLLocalDB;
-            //Initial Catalog=Emp_Dep;
-            //Integrated security = True;"   /*False */
-
-            //var connectionString = ConfigurationManager.ConnectionStrings["DefaultStr"].ConnectionString;   
-
-            var connectionString = new SqlConnectionStringBuilder
-            {
-                DataSource = @"(LocalDb)\MSSQLLocalDB",
-                InitialCatalog = "Emp_Dep"
-            }.ConnectionString;
-
-            var sqlExp = $@"INSERT INTO EmpTable(FName, LName, Age, DepID)
-                            VALUES ('Barmalei', 'Mohov', '45', '1')";
-
-            //создание экземпляра класса подключения к базе с параметрами connectionString
-            //пример открытия и закрытия подключения к базе данных
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    //Console.WriteLine(connection.State);
-               
-            //    //connection.Close();
-            //    SqlCommand  command = new SqlCommand(sqlExp, connection );
-            //    var number = command.ExecuteNonQuery();
-            //}
-
-
+            // Connection - Устанавливает подключение к источнику данных
+            // Command - Позволяет выполнять операции с данными из БД
+            // DataReader - Позволяет хранить и работать с данными независимо от БД
+            // DataSet, DataTable - содержит данные, полученные из БД
             
+            var connectionString = ConfigurationManager.ConnectionStrings["DefaultStr"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            SqlCommand command = new SqlCommand(
+                "SELECT Id, FName, LName, Age, DepID",
+                connection);
+
+            adapter.SelectCommand = command;
+
+            DataTable dataEmpDataTable = new DataTable();
+
+            adapter.Fill(dataEmpDataTable);
+
+            ListEmp.DataContext = dataEmpDataTable.DefaultView;
 
 
 
-           
+
+
+
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;
 
