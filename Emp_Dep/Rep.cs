@@ -12,7 +12,22 @@ namespace Emp_Dep
             DbEmployees = new ObservableCollection<Employee>();
             DbDepartments = new ObservableCollection<Department>();
 
+            DbDepartments.Add(new Department("Приемная",1));
+            DbDepartments.Add(new Department("Прачечная", 2));
+            DbDepartments.Add(new Department("Морг", 3));
+
+            DbEmployees.Add(new Employee("Василий", "Афанасьев", 25.ToString(), 1));
+            DbEmployees.Add(new Employee("Федор", "Ивлев", 25.ToString(), 1));
+            DbEmployees.Add(new Employee("Тамара", "Иванова", 32.ToString(), 2));
+            DbEmployees.Add(new Employee("Валентина", "Кошелева", 32.ToString(), 2));
+            DbEmployees.Add(new Employee("Василий", "Пупкин", 48.ToString(), 3));
+            DbEmployees.Add(new Employee("Иван", "Ложкин", 48.ToString(), 3));
+
+            
+
         }
+
+
 
 
         /// <summary>

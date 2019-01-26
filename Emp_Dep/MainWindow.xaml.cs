@@ -60,15 +60,7 @@ namespace Emp_Dep
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;
 
-            dbEmpDep.AddDep("Приемная");
-            dbEmpDep.AddDep("Прачечная");
-            dbEmpDep.AddDep("Морг");
-            dbEmpDep.AddEmp("Василий", "Афанасьев", 25.ToString(), 1);
-            dbEmpDep.AddEmp("Федор", "Ивлев", 25.ToString(), 1);
-            dbEmpDep.AddEmp("Тамара", "Иванова", 32.ToString(), 2);
-            dbEmpDep.AddEmp("Валентина", "Кошелева", 32.ToString(), 2);
-            dbEmpDep.AddEmp("Василий", "Пупкин", 48.ToString(), 3);
-            dbEmpDep.AddEmp("Иван", "Ложкин", 48.ToString(), 3);
+
 
            
 
