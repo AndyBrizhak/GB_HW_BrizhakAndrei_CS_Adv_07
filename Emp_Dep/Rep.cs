@@ -2,7 +2,7 @@
 
 namespace Emp_Dep
 {
-    public class Rep                                                             /*: IEquatable<Department>*/
+    public class Rep                                                             
     {
         public ObservableCollection<Employee> DbEmployees { get; set; }
         public ObservableCollection<Department> DbDepartments { get; set; }
@@ -55,7 +55,6 @@ namespace Emp_Dep
         /// <param name="depId"></param>
         public void AddEmp(string fName, string lName, string strAge, int depId)
         {
-            //var age = int.Parse(strAge);
             DbEmployees.Add(new Employee(fName, lName, strAge, depId));
 
         }
@@ -69,7 +68,6 @@ namespace Emp_Dep
         {
             if (DbEmployees.Count == 0) return;
             if (!DbEmployees.Contains(selEmployee)) return;
-            //DbEmployees.RemoveAt(id);
             DbEmployees.Remove(selEmployee);
         }
     }

@@ -15,7 +15,6 @@ namespace Emp_Dep
             {
                 var selEmp = dbEmpDep.DbEmployees.Single(e => e.GetHashCode() == i);
                 selEmp.FName = txt.Text;
-                //dbEmpDep.DbEmployees[i].FName = txt.Text;
                 this.DialogResult = true;
             };
 

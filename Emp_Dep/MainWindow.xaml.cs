@@ -15,12 +15,14 @@ namespace Emp_Dep
     public partial class MainWindow : Window
     {
         public Rep dbEmpDep;
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
+
             //создание переменной описывающей подключение к базе даных
             //@"Data source=(LocalDb)\MSSQLLocalDB;
             //Initial Catalog=Emp_Dep;
@@ -34,21 +36,25 @@ namespace Emp_Dep
                 InitialCatalog = "Emp_Dep"
             }.ConnectionString;
 
+            var sqlExp = $@"INSERT INTO EmpTable(FName, LName, Age, DepID)
+                            VALUES ('Barmalei', 'Mohov', '45', '1')";
 
             //создание экземпляра класса подключения к базе с параметрами connectionString
             //пример открытия и закрытия подключения к базе данных
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                //Console.WriteLine(connection.State);
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    //Console.WriteLine(connection.State);
                
-                //connection.Close();
-            }
+            //    //connection.Close();
+            //    SqlCommand  command = new SqlCommand(sqlExp, connection );
+            //    var number = command.ExecuteNonQuery();
+            //}
+
 
             
 
-            
-            
+
 
             dbEmpDep = new Rep();
             MainGrid.DataContext = dbEmpDep;
@@ -64,7 +70,7 @@ namespace Emp_Dep
             dbEmpDep.AddEmp("Василий", "Пупкин", 48.ToString(), 3);
             dbEmpDep.AddEmp("Иван", "Ложкин", 48.ToString(), 3);
 
-            //DepCombobox.ItemsSource = dbEmpDep.DbDepartments;
+           
 
             DepEditBtn.Click += delegate
             {
@@ -82,7 +88,7 @@ namespace Emp_Dep
 
         private void DepCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ListEmp.Items.Refresh();
+          
             RefreshListEmp();
         }
 
@@ -118,9 +124,6 @@ namespace Emp_Dep
         {
 
             Employee selEmployee = ListEmp.SelectedItem as Employee;
-            //int empHashCode = (ListEmp.SelectedItem as Employee).GetHashCode();
-            //var selEmp = dbEmpDep.DbEmployees.Single(el => el.GetHashCode() == empHashCode);
-
             dbEmpDep.DelEmp(selEmployee);
             RefreshListEmp();
         }

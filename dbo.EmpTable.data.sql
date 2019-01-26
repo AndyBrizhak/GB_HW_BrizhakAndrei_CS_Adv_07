@@ -1,0 +1,7 @@
+﻿INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (1, N'Тамара', N'Иванова', N'35        ', 1)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (2, N'Евгений', N'Фролов', N'45        ', 1)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (3, N'Афанасий', N'Петров', N'50        ', 2)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (4, N'Ирина', N'Кукушкина', N'34        ', 2)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (5, N'Глафира', N'Сидорова', N'28        ', 3)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (6, N'Иннокентий', N'Хряков', N'36        ', 3)
+INSERT INTO [dbo].[EmpTable] ([Id], [FName], [LName], [Age], [DepID]) VALUES (8, N'Andri', N'Brizhak', N'45        ', 1)
