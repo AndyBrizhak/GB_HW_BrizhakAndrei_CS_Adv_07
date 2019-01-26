@@ -21,33 +21,41 @@ namespace Emp_Dep
         {
             InitializeComponent();
 
-            dbEmpDep = new Rep();
+
 
             // Connection - Устанавливает подключение к источнику данных
             // Command - Позволяет выполнять операции с данными из БД
             // DataReader - Позволяет хранить и работать с данными независимо от БД
             // DataSet, DataTable - содержит данные, полученные из БД
-            
+
             var connectionString = ConfigurationManager.ConnectionStrings["DefaultStr"].ConnectionString;
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter();
 
-            SqlCommand command = new SqlCommand(
-                "SELECT Id, FName, LName, Age, DepID",
+            SqlCommand commandEmp = new SqlCommand(
+                "SELECT Id, FName, LName, Age, DepID FROM EmpTable",
                 connection);
 
-            adapter.SelectCommand = command;
+            adapter.SelectCommand = commandEmp;
 
             DataTable dataEmpTable = new DataTable();
 
             adapter.Fill(dataEmpTable);
 
-            ListEmp.DataContext = dataEmpTable.DefaultView;
+            //ListEmp.DataContext = dataEmpTable.DefaultView;
+
+            SqlCommand commandDep = new SqlCommand(
+                "SELECT Id, NameDep FROM DepTable",
+                connection);
+
+            adapter.SelectCommand = commandDep;
+
+            DataTable dataDepTable = new DataTable();
+
+            adapter.Fill(dataDepTable);
 
 
-
-
-
+            dbEmpDep = new Rep();
 
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;

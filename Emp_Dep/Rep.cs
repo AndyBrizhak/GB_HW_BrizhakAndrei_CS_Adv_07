@@ -1,10 +1,31 @@
 ﻿using System.Collections.ObjectModel;
+using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+
 
 namespace Emp_Dep
 {
+    /// <summary>
+    /// Содержит две коллекции Департаменты и Работники
+    /// </summary>
     public class Rep                                                             
     {
+        
+
+        /// <summary>
+        /// Коллекция Работники
+        /// </summary>
         public ObservableCollection<Employee> DbEmployees { get; set; }
+
+        /// <summary>
+        /// Коллекция Департаменты
+        /// </summary>
         public ObservableCollection<Department> DbDepartments { get; set; }
 
         public Rep()
