@@ -20,7 +20,7 @@ namespace Emp_Dep
         {
             InitializeComponent();
 
-            
+            dbEmpDep = new Rep();
 
 
             //создание переменной описывающей подключение к базе даных
@@ -56,7 +56,7 @@ namespace Emp_Dep
 
 
 
-            dbEmpDep = new Rep();
+           
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;
 
