@@ -38,11 +38,11 @@ namespace Emp_Dep
 
             adapter.SelectCommand = command;
 
-            DataTable dataEmpDataTable = new DataTable();
+            DataTable dataEmpTable = new DataTable();
 
-            adapter.Fill(dataEmpDataTable);
+            adapter.Fill(dataEmpTable);
 
-            ListEmp.DataContext = dataEmpDataTable.DefaultView;
+            ListEmp.DataContext = dataEmpTable.DefaultView;
 
 
 
@@ -106,6 +106,17 @@ namespace Emp_Dep
 
         private void ButtonDelEmp_Click(object sender, RoutedEventArgs e)
         {
+            //command = new SqlCommand("DELETE FROM EmpTable WHERE Id = @ID", connection);
+
+            //SqlParameter parameter = command.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
+
+            //parameter.SourceVersion = DataRowVersion.Original;
+
+            //adapter.DeleteCommand = command;
+
+            //DataRowView rowView = (DataRowView)ListEmp.SelectedItem;
+            //rowView.Row.Delete();
+            //adapter.Update(dataEmpTable);
 
             Employee selEmployee = ListEmp.SelectedItem as Employee;
             dbEmpDep.DelEmp(selEmployee);
