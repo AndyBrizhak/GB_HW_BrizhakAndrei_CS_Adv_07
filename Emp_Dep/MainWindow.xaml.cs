@@ -57,6 +57,9 @@ namespace Emp_Dep
 
             dbEmpDep = new Rep();
 
+            //DepCombobox.DataContext = dataDepTable.DefaultView;
+
+
             MainGrid.DataContext = dbEmpDep;
             this.DataContext = dbEmpDep;
 
