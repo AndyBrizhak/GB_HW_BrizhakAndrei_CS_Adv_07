@@ -28,5 +28,11 @@ namespace Emp_Dep
                 this.DialogResult = true;
             };
         }
+
+        //private void saveButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    resultRow["NameDep"] = txt.Text;
+        //    this.DialogResult = true;
+        //}
     }
 }
